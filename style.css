@@ -307,7 +307,9 @@ address {
    =================================================== */
 .hero {
   position: relative;
-  background: var(--color-primary);
+  background:
+    linear-gradient(rgba(8, 59, 53, 0.70), rgba(8, 59, 53, 0.85)),
+    url('assets/image-hero.png') center / cover no-repeat;
   padding-top: calc(72px + clamp(64px, 10vw, 120px));
   padding-bottom: clamp(80px, 10vw, 140px);
   overflow: hidden;
