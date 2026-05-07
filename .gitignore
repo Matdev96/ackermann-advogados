@@ -1,0 +1,9 @@
+# Claude Code settings (contém tokens sensíveis)
+.claude/
+
+# Documentos internos (não vão para o repositório público)
+*.pdf
+*.pptx
+*.ppt
+*.doc
+*.docx
