@@ -136,6 +136,10 @@ address {
   margin-inline: auto;
 }
 
+.section-header--light .section-sub {
+  margin-inline: 0;
+}
+
 /* ── Buttons ── */
 .btn {
   display: inline-flex;
@@ -381,14 +385,15 @@ address {
 }
 
 .hero__oak-motif {
-  width: clamp(180px, 28vw, 320px);
-  opacity: 0.6;
+  width: clamp(200px, 28vw, 340px);
+  opacity: 0.55;
   animation: floatOak 6s ease-in-out infinite;
 }
 
-.hero__oak-svg {
+.hero__oak-img {
   width: 100%;
   height: auto;
+  display: block;
 }
 
 @keyframes floatOak {
@@ -424,6 +429,24 @@ address {
 .pain {
   padding-block: var(--section-pad);
   background: var(--color-white);
+  position: relative;
+}
+
+.pain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/elemento-banner.jpg');
+  background-repeat: repeat;
+  background-size: 480px auto;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pain .container {
+  position: relative;
+  z-index: 1;
 }
 
 .pain__grid {
@@ -485,6 +508,38 @@ address {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 28px;
   margin-bottom: 48px;
+}
+
+.services .container {
+  max-width: 1480px;
+}
+
+.services__grid--five {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 0;
+  align-items: stretch;
+}
+
+.services__grid--five .services__card {
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.services__grid--five .services__number {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.services__grid--five .services__title {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.services__grid--five .services__desc {
+  font-size: 0.88rem;
+  flex: 1;
 }
 
 .services__card {
@@ -618,76 +673,6 @@ address {
   letter-spacing: 0.04em;
 }
 
-/* ===================================================
-   PROCESS
-   =================================================== */
-.process {
-  padding-block: var(--section-pad);
-  background: var(--color-primary);
-}
-
-.section-header--inverted {
-  text-align: center;
-}
-
-.process__steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 0;
-  position: relative;
-}
-
-.process__steps::before {
-  content: '';
-  position: absolute;
-  top: 32px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(163, 127, 114, 0.3), transparent);
-  pointer-events: none;
-}
-
-.process__step {
-  padding: 40px 28px;
-  position: relative;
-}
-
-.process__step::before {
-  content: '';
-  position: absolute;
-  top: 26px;
-  left: 28px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--color-secondary);
-  border: 2px solid var(--color-primary);
-  box-shadow: 0 0 0 4px rgba(163, 127, 114, 0.2);
-}
-
-.process__num {
-  font-size: 3rem;
-  font-weight: 800;
-  color: rgba(163, 127, 114, 0.2);
-  line-height: 1;
-  margin-bottom: 20px;
-  letter-spacing: -0.02em;
-  margin-left: 20px;
-}
-
-.process__title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-white);
-  margin-bottom: 12px;
-}
-
-.process__desc {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.8;
-}
 
 /* ===================================================
    DIFFERENTIALS
@@ -695,6 +680,24 @@ address {
 .differentials {
   padding-block: var(--section-pad);
   background: var(--color-gray-100);
+  position: relative;
+}
+
+.differentials::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/elemento-banner.jpg');
+  background-repeat: repeat;
+  background-size: 480px auto;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.differentials .container {
+  position: relative;
+  z-index: 1;
 }
 
 .differentials__grid {
@@ -1158,13 +1161,9 @@ address {
     max-height: 360px;
   }
 
-  /* Process */
-  .process__steps {
-    grid-template-columns: 1fr;
-  }
-
-  .process__steps::before {
-    display: none;
+  /* Services — 5 steps */
+  .services__grid--five {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   /* Footer */
@@ -1184,6 +1183,7 @@ address {
 
   .pain__grid,
   .services__grid,
+  .services__grid--five,
   .differentials__grid,
   .testimonials__grid {
     grid-template-columns: 1fr;
