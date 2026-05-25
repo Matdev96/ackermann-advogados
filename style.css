@@ -739,6 +739,167 @@ address {
 }
 
 /* ===================================================
+   RESULTADO REAL
+   =================================================== */
+.resultado {
+  padding-block: var(--section-pad);
+  background: var(--color-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.resultado::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(163, 127, 114, 0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.resultado__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: clamp(40px, 7vw, 96px);
+  align-items: center;
+}
+
+.resultado__eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.resultado__eyebrow-line {
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--color-secondary);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.resultado__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.resultado__title {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  color: var(--color-white);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.resultado__title em {
+  font-style: italic;
+  color: var(--color-secondary);
+}
+
+.resultado__sub {
+  font-size: 0.97rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.8;
+}
+
+.resultado__card {
+  padding: 40px 44px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(4px);
+}
+
+.resultado__card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  gap: 16px;
+}
+
+.resultado__card-date {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.resultado__card-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  border: 1px solid rgba(163, 127, 114, 0.4);
+  border-radius: 100px;
+  padding: 4px 14px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.resultado__card-headline {
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.4;
+  margin-bottom: 36px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.resultado__card-headline em {
+  font-style: italic;
+  color: var(--color-secondary);
+}
+
+.resultado__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.resultado__stat-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 8px;
+}
+
+.resultado__stat-value {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 800;
+  color: var(--color-white);
+  line-height: 1;
+}
+
+.resultado__stat-value--accent {
+  color: var(--color-secondary);
+}
+
+.resultado__note {
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid var(--color-secondary);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.resultado__note p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.7;
+}
+
+/* ===================================================
    TESTIMONIALS
    =================================================== */
 .testimonials {
@@ -1166,6 +1327,15 @@ address {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* Resultado Real */
+  .resultado__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .resultado__card {
+    padding: 28px 24px;
+  }
+
   /* Footer */
   .footer__inner {
     grid-template-columns: 1fr 1fr;
@@ -1187,5 +1357,10 @@ address {
   .differentials__grid,
   .testimonials__grid {
     grid-template-columns: 1fr;
+  }
+
+  .resultado__stats {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
