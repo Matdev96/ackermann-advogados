@@ -876,10 +876,11 @@ address {
 }
 
 .resultado__stat-value {
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
   font-weight: 800;
   color: var(--color-white);
   line-height: 1;
+  white-space: nowrap;
 }
 
 .resultado__stat-value--accent {
